@@ -1,3 +1,4 @@
+import CharacterCard from '@/components/CharacterCard'
 import Image from 'next/image'
 
 export default function Home() {
@@ -16,6 +17,16 @@ export default function Home() {
       <Image width={34} height={24} className='h-7' src="/assets/busca/Lupa/Shape@2x.png" alt="lupa" />
         <input type="text" className='h-auto w-screen placeholder-red-500 pl-6 focus:outline-red-600 outline-none rounded-xl' placeholder='Procure por heróis' name="search" id="" />
       </section>
+      <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+        <CharacterCard />
+        <CharacterCard />
+        <CharacterCard />
+        <CharacterCard />
+        <CharacterCard />
+        <CharacterCard />
+        <CharacterCard />
+        <CharacterCard />
+      </div>
     </main>
 
   )
