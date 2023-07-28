@@ -4,7 +4,6 @@ import Image from 'next/image'
 
 export default async function Home() {
   const characters = await getCharacters();
-  console.log(characters);
 
   return (
     <main className='bg-white h-screen flex flex-col items-center px-20'>
