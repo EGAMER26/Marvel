@@ -5,7 +5,7 @@ interface characterCardProps {
 }
 
 const CharacterCard: FC<characterCardProps> = ({}) => {
-return <div className="w-80 h-64 bg-green-500">
+return <div className="w-full max-w-sm h-64 bg-green-500">
   <picture>
 
   </picture>
