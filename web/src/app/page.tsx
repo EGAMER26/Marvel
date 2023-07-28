@@ -7,7 +7,7 @@ export default async function Home() {
   console.log(characters);
 
   return (
-    <main className='bg-white h-screen flex flex-col items-center'>
+    <main className='bg-white h-screen flex flex-col items-center px-20'>
       <header>
       <div className='w-auto flex flex-col justify-center text-center h-auto'>
         <div className='flex justify-center'>
@@ -22,14 +22,9 @@ export default async function Home() {
         <input type="text" className='h-auto w-screen placeholder-red-500 pl-6 focus:outline-red-600 outline-none rounded-xl' placeholder='Procure por heróis' name="search" id="" />
       </section>
       <div className="grid place-items-center mt-20 w-full gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-        {<CharacterCard />
-        <CharacterCard />
-        <CharacterCard />
-        <CharacterCard />
-        <CharacterCard />
-        <CharacterCard />
-        <CharacterCard />
-        <CharacterCard />}
+        {characters.results.map((character) => (
+          <CharacterCard key={character.id} character={character}/>
+        ))}
       </div>
     </main>
 

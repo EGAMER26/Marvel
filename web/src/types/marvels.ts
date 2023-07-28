@@ -9,6 +9,6 @@ thumbnail: {
 }
 
 export interface CharacterDataWrapper {
-  result: Character[]
+  results: Character[]
 
 }
