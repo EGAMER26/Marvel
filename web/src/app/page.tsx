@@ -1,4 +1,5 @@
 import CharacterCard from '@/components/CharacterCard'
+import Navbar from '@/components/Navbar';
 import { getCharacters } from '@/utils/api'
 import Image from 'next/image'
 
@@ -16,10 +17,9 @@ export default async function Home() {
         <p className='mt-2'>Mergulhe no domínio Deslumbrante de todos os personagens clássicos que você ama - e aqueles que você descobrirá em breve!</p>
       </div>
       </header>
-      <section className='flex gap-5 w-2/3 relative mt-20 h-16 items-center '>
-      <Image width={34} height={24} className='h-6 w-6 absolute left-6' src="/assets/busca/Lupa/Shape@2x.png" alt="lupa" />
-        <input type="text" className='h-16 w-screen placeholder-red-500 bg-red-200 pl-20 focus:outline-red-600 outline-none rounded-full' placeholder='Procure por heróis' name="search" id="" />
-      </section>
+      <div className="mt-20 flex justify-center">
+        <Navbar />
+      </div>
       <div className="grid place-items-center mt-20 w-full gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
         {characters.results.map((character) => (
           <CharacterCard key={character.id} character={character}/>

@@ -12,13 +12,14 @@ interface CharacterPageProps {
 const CharacterPage: FC<CharacterPageProps> = async ({ params }) => {
   const { id } = params;
   const character = await detailCharacter(id);
+  const {thumbnail, name, description} = character.results[0];
   return <div className='container'>
     <div className="aboutContent">
-      <h2>${character.results[0].name}</h2>
-      <p>${character.results[0].description}</p>
+      <h2>${name}</h2>
+      <p>${description}</p>
     </div>
     <Image 
-    src={`${character.results[0].thumbnail.path}.${character.results[0].thumbnail.extension}`}
+    src={`${thumbnail.path}.${character.results[0].thumbnail.extension}`}
     alt={character.results[0].name}
     width={500}
     height={500}

@@ -10,15 +10,17 @@ interface characterCardProps {
 
 const CharacterCard: FC<characterCardProps> = ({character}) => {
   console.log(character); 
-  return <div className="w-full max-w-sm h-64 mb-8 hover:scale-105 hover:shadow-black hover:shadow-2xl overflow-hidden ease-in duration-200">
+  return <div className="w-full max-w-sm h-80 mb-8 hover:scale-105 hover:shadow-black hover:shadow-2xl overflow-hidden ease-in duration-200">
     <Link href={`details/${character.id}`}>
-  <div className='overflow-hidden h-48 border-b-4 border-solid border-red-600'>
-    <figure>
+  <div className='overflow-hidden h-56 border-b-4 border-solid border-red-600'>
+      
+    <figure className=''>
       <Image
       src={`${character.thumbnail.path}.${character.thumbnail.extension}`}
       alt={character.name}
       width={500}
       height={500}
+      className='object-fill'
       />
     </figure>
   </div>
