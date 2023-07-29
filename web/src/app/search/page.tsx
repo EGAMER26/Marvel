@@ -1,8 +1,12 @@
 'use client'
+import CharacterCard from '@/components/CharacterCard';
 import Navbar from '@/components/Navbar';
+import Allnav from '@/components/Allnav';
+import Loading from '@/components/loading';
 import { Character } from '@/types/marvels';
 import { searCharacters } from '@/utils/api';
 import Image from 'next/image';
+import Link from 'next/link';
 import { useSearchParams } from 'next/navigation';
 import { FC, useEffect, useState } from 'react'
 
@@ -31,13 +35,20 @@ const SearchPage: FC= () => {
       fetchData();
     }
   }, [querySearch]);
-  return <main>
-    <nav className='flex gap-24 pl-20 items-center'>
-    <Image height={0} width={400} className='h-20' src="/assets/logo/Group@3x.png" alt='logo'/>
-    <div>
-      <Navbar />
-    </div>
-    </nav>
+  return <main className='px-20'>
+    <Allnav />
+    <div className="mt-10">Resultado <span>&quot;{querySearch}&quot;</span></div>
+      {
+        isLoading ? <div className='w-full h-full flex justify-center items-center'>
+          <div className="w-full h-full flex justify-center items-center"><Loading /></div>
+        </div> : (
+            <div className="grid place-items-center mt-10 w-full gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+        {characters.map((character) => (
+          <CharacterCard key={character.id} character={character}/>
+        ))}
+      </div>
+        ) 
+      }
     </main>
 }
 

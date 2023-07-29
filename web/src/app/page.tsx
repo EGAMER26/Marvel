@@ -17,7 +17,7 @@ export default async function Home() {
         <p className='mt-2'>Mergulhe no domínio Deslumbrante de todos os personagens clássicos que você ama - e aqueles que você descobrirá em breve!</p>
       </div>
       </header>
-      <div className="mt-20 flex justify-center">
+      <div className="mt-20 w-2/3 flex justify-center">
         <Navbar />
       </div>
       <div className="grid place-items-center mt-20 w-full gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">

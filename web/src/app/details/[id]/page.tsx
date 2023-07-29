@@ -1,3 +1,4 @@
+import Allnav from '@/components/Allnav';
 import {detailCharacter} from '@/utils/api';
 import Image from 'next/image';
 import { FC } from "react";
@@ -13,7 +14,8 @@ const CharacterPage: FC<CharacterPageProps> = async ({ params }) => {
   const { id } = params;
   const character = await detailCharacter(id);
   const {thumbnail, name, description} = character.results[0];
-  return <div className='container'>
+  return <div className='px-20'>
+    <Allnav />
     <div className="aboutContent">
       <h2>${name}</h2>
       <p>${description}</p>
