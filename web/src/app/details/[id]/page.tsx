@@ -99,6 +99,8 @@ const CharacterPage: FC<CharacterPageProps> = async ({ params }) => {
 
     <div className="px-40 mt-40 bg-green-100 w-full">
       <h2 className='text-gray-600 text-lg'>Últimos lançamentos</h2>
+      <div className="grid place-items-center mt-20 w-full gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+
       {comics.results.map((comic) => (
           <ComicCard key={comic.id} comic={comic}/>
         ))}
@@ -107,6 +109,7 @@ const CharacterPage: FC<CharacterPageProps> = async ({ params }) => {
             <CharacterCard key={character.id} character={character}/>
           ))}
         </div> */}
+        </div>
         </div>
     </div>
 }

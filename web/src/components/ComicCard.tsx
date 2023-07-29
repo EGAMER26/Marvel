@@ -26,7 +26,6 @@ const ComiCard: FC<comicCardProps> = ({comic}) => {
   </div>
   <div className="flex justify-between w-auto h-20 font-bold items-center ">
     <p>{comic.name}</p>
-    <Image width={20} height={15}src="/assets/icones/heart/Path Copy 2@3x.png" alt="" />
   </div>
 </Link>
 </div>
