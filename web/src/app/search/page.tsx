@@ -37,18 +37,19 @@ const SearchPage: FC= () => {
   }, [querySearch]);
   return <main className='px-20'>
     <Allnav />
-    <div className="mt-10">Resultado <span>&quot;{querySearch}&quot;</span></div>
-      {
-        isLoading ? <div className='w-full h-full flex justify-center items-center'>
-          <div className="w-full h-full flex justify-center items-center"><Loading /></div>
-        </div> : (
-            <div className="grid place-items-center mt-10 w-full gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-        {characters.map((character) => (
-          <CharacterCard key={character.id} character={character}/>
-        ))}
-      </div>
-        ) 
-      }
+    
+      <div className="mt-10">Resultado <span>&quot;{querySearch}&quot;</span></div>
+        {
+          isLoading ? <div className='w-full h-full flex justify-center items-center'>
+            <div className="w-full h-full flex justify-center items-center"><Loading /></div>
+          </div> : (
+              <div className="grid place-items-center mt-10 w-full gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+          {characters.map((character) => (
+            <CharacterCard key={character.id} character={character}/>
+          ))}
+        </div>
+          )
+        }
     </main>
 }
 
