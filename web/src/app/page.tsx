@@ -1,8 +1,10 @@
 import CharacterCard from '@/components/CharacterCard'
 import Navbar from '@/components/Navbar';
-import { getCharacters } from '@/utils/api'
+import { getCharacterComic, getCharacters } from '@/utils/api'
 import Image from 'next/image'
 import Link from 'next/link';
+
+
 
 export default async function Home() {
   const characters = await getCharacters();
