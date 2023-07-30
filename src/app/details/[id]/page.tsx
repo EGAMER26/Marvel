@@ -35,9 +35,9 @@ const CharacterPage: FC<CharacterPageProps> = async ({ params }) => {
   // const {available} = comics.results[0];
   // const {comicThumbnail, comicName, comicDescription} = comics.results[0];
     console.log(`este é o numero de quadrinhos${available}`)
-  return <div className='px-20 bg-green-100 h-screen text-slate-600 z-10 relative'>
+  return <div className='px-20 sm:px-2 bg-green-100 h-screen text-slate-600 z-10 relative'>
     <Allnav />
-    <section className="pl-40 flex ">
+    <section className="pl-40 max-sm:pl-4 flex max-sm:flex-col">
       <h2 className='text-9xl text-white right-0 bottom-96 font-extrabold tracking-widest absolute'>{name}</h2>
     <div className="mt-32 w-80 relative z-10">
       <div className="flex justify-between items-center">
@@ -93,7 +93,7 @@ const CharacterPage: FC<CharacterPageProps> = async ({ params }) => {
     
     </section>
 
-    <div className="px-40 mt-40 bg-green-100 w-full">
+    <div className="px-40 max-sm:px-4 mt-40 bg-green-100 w-full">
       <h2 className='text-gray-600 text-lg'>Últimos lançamentos</h2>
       <div className="grid place-items-center mt-20 w-full gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
 
