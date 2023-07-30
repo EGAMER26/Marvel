@@ -25,7 +25,7 @@ const ComiCard: FC<comicCardProps> = ({comic}) => {
     </figure>
   </div>
   <div className="flex justify-between w-auto h-20 font-bold items-center ">
-    <p>{comic.name}</p>
+    <p>{comic.title}</p>
   </div>
 </Link>
 </div>

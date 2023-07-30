@@ -2,6 +2,8 @@ import Allnav from '@/components/Allnav';
 import { getCharacterComic, detailCharacter} from '@/utils/api';
 import Image from 'next/image';
 import { FC } from "react";
+import { Comics} from '@/types/marvels'
+
 
 import CharacterCard from '@/components/CharacterCard'
 import { getCharacters } from '@/utils/api'
@@ -13,33 +15,27 @@ import ComicCard from '@/components/ComicCard';
 interface CharacterPageProps {
   params: {
     id: string;
-  }
+    comic:  { 
+      comic: Comics;
+    }
 
+  }
 }
 
-const CharacterPage: FC<CharacterPageProps> = async ({ params }) => {
 
-  const { id } = params;
-  
+const CharacterPage: FC<CharacterPageProps> = async ({ params }) => {
+  const { id, comic } = params;
+  // console.log(comic); 
   
   const comics = await getCharacterComic(id);
-  console.log(comics.results);
-  // async function fetchCharacterComics() {
-  //   const characterId = `${id}`; // Substitua '123' pelo ID do personagem que você deseja buscar os quadrinhos
-  //   try {
-  //     const comicsData = await getCharacterComic(characterId.id);
-  //     console.log(comicsData.results); // Aqui você terá a lista de quadrinhos associados ao personagem
-  //   } catch (error) {
-  //     console.error('Erro ao buscar quadrinhos do personagem:', error);
-  //   }
-  // }
-  
-  // fetchCharacterComics();
+  // console.log(comics.results);
   
   const character = await detailCharacter(id);
   const {thumbnail, name, description} = character.results[0];
+  const {available} = comics.results[0];
   // const {comicThumbnail, comicName, comicDescription} = comics.results[0];
   return <div className='px-20 bg-green-100 h-screen text-slate-600 z-10 relative'>
+    console.log(`este é o numero de quadrinhos ${available}`)
     <Allnav />
     <section className="pl-40 flex ">
       <h2 className='text-9xl text-white right-0 bottom-96 font-extrabold tracking-widest absolute'>{name}</h2>
@@ -57,14 +53,14 @@ const CharacterPage: FC<CharacterPageProps> = async ({ params }) => {
         <p>Quadrinhos</p>
         <div className="flex items-center">
           <Image width={30} height={100} className='mt-2' src="/assets/icones/book/Group@3x.png" alt="book" />
-          <p className='ml-4'>{name}</p>
+          <p className='ml-4'>{available}</p>
         </div>
       </div>
       <div className="col-span-1">
       <p>Filmes</p>
         <div className="flex items-center">
           <Image width={30} height={100} className='mt-2' src="/assets/icones/video/Shape@3x.png" alt="book" />
-          <p className='ml-4'>{name}</p>
+          <p className='ml-4'>{}</p>
         </div>
       </div>
 
