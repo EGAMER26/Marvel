@@ -31,11 +31,11 @@ const CharacterPage: FC<CharacterPageProps> = async ({ params }) => {
   // console.log(comics.results);
   
   const character = await detailCharacter(id);
-  const {thumbnail, name, description} = character.results[0];
-  const {available} = comics.results[0];
+  const {thumbnail, name, description, available} = character.results[0];
+  // const {available} = comics.results[0];
   // const {comicThumbnail, comicName, comicDescription} = comics.results[0];
+    console.log(`este é o numero de quadrinhos${available}`)
   return <div className='px-20 bg-green-100 h-screen text-slate-600 z-10 relative'>
-    console.log(`este é o numero de quadrinhos ${available}`)
     <Allnav />
     <section className="pl-40 flex ">
       <h2 className='text-9xl text-white right-0 bottom-96 font-extrabold tracking-widest absolute'>{name}</h2>
