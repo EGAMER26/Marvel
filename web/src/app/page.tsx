@@ -8,6 +8,7 @@ import Link from 'next/link';
 
 export default async function Home() {
   const characters = await getCharacters();
+  
 
   return (
     <main className='bg-white h-screen flex flex-col items-center px-20'>
