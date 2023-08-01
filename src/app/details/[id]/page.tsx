@@ -24,17 +24,18 @@ interface CharacterPageProps {
 
 
 const CharacterPage: FC<CharacterPageProps> = async ({ params }) => {
-  const { id, comic } = params;
+  const { comic, id} = params;
   // console.log(comic); 
   
   const comics = await getCharacterComic(id);
-  // console.log(comics.results);
+  console.log(`este são os parametros ${params.comic}`);
+
   
   const character = await detailCharacter(id);
   const {thumbnail, name, description, available} = character.results[0];
   // const {available} = comics.results[0];
   // const {comicThumbnail, comicName, comicDescription} = comics.results[0];
-    console.log(`este é o numero de quadrinhos${available}`)
+    // console.log(`este é o numero de quadrinhos${available}`)
   return <div className='px-20 max-sm:px-auto bg-green-100 h-screen text-slate-600 z-10 relative'>
     <Allnav />
     <section className="pl-40 max-sm:pl-4 flex max-sm:flex-col">
@@ -53,7 +54,9 @@ const CharacterPage: FC<CharacterPageProps> = async ({ params }) => {
         <p>Quadrinhos</p>
         <div className="flex items-center">
           <Image width={30} height={100} className='mt-2' src="/assets/icones/book/Group@3x.png" alt="book" />
-          <p className='ml-4'>{available}</p>
+          {/* <p className='ml-4'>{comics.results.map() => ({comics.available})}</p> */}
+          {/* <p className='ml-4'>{comics.results.map((comic) => <span key={comic.id}>{comic.title}</span>)}</p> */}
+          <p className='ml-4'>{character.results.map((comic) => <span key={comic.id}>{comic.available}</span>)}</p>
         </div>
       </div>
       <div className="col-span-1">
@@ -108,6 +111,7 @@ const CharacterPage: FC<CharacterPageProps> = async ({ params }) => {
         </div>
         </div>
     </div>
+
 }
 
 export default CharacterPage;

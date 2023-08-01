@@ -9,7 +9,7 @@ interface comicCardProps {
 }
 
 const ComiCard: FC<comicCardProps> = ({comic}) => {
-  console.log(comic); 
+  // console.log(comic); 
   return <div className="w-full max-w-sm h-80 mb-8 hover:scale-105 hover:shadow-black hover:shadow-2xl overflow-hidden ease-in duration-200">
     <Link href={`details/${comic.id}`}>
   <div className='overflow-hidden h-56 border-b-4 border-solid border-red-600'>
@@ -17,7 +17,7 @@ const ComiCard: FC<comicCardProps> = ({comic}) => {
     <figure className=''>
       <Image
       src={`${comic.thumbnail.path}.${comic.thumbnail.extension}`}
-      alt={comic.name}
+      alt={comic.title}
       width={500}
       height={500}
       className='object-fill'

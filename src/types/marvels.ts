@@ -2,7 +2,7 @@ export interface Character {
 id: number,
 name: string,
 description: string,
-available: number,
+available: string,
 thumbnail: {
   path: string,
   extension: string
@@ -10,7 +10,6 @@ thumbnail: {
 }
 export interface Comics {
   id: number,
-  name: string, 
   title: string,
   description: string,
   available: number,
