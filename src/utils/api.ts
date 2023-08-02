@@ -36,6 +36,12 @@ export const searCharacters = async (querySearch: string | null): Promise<Charac
   return handleResponse<CharacterDataWrapper>(response);
 }
 
+export const orderCharacters = async (): Promise<CharacterDataWrapper> => {
+  const url = `${API_BASE_URL}/characters?orderBy=-name&limit=99&${query}`;
+  const response = await fetch(url);
+  return handleResponse<CharacterDataWrapper>(response);
+}
+
 export const getCharacterComic = async (characterId: string): Promise<ComicDataWrapper> => {
   const url = `${API_BASE_URL}/characters/${characterId}/comics?${query}`;
   const response = await fetch(url);

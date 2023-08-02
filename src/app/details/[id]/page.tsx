@@ -31,10 +31,10 @@ const CharacterPage: FC<CharacterPageProps> = async ({ params }) => {
   
 
   const series = await getCharacterSeries(id);
-  console.log(series.results.length);
+  // console.log(series.results.length);
   const comics = await getCharacterComic(id);
   const {title} = comics.results[0];
-  console.log(comics.results.length);
+  // console.log(comics.results.length);
 
   const character = await detailCharacter(id);
   const {thumbnail, name, description, available} = character.results[0];

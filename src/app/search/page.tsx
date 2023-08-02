@@ -17,7 +17,7 @@ const SearchPage: FC= () => {
   const querySearch = searchParams.get('query');
   const [characters, setCharacters] = useState<Character[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(false);
-  console.log(characters);
+  // console.log(characters);
 
 
   useEffect(() => {
