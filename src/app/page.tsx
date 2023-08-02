@@ -1,6 +1,6 @@
 import CharacterCard from '@/components/CharacterCard'
 import Navbar from '@/components/Navbar';
-import { getCharacterComic, getCharacters } from '@/utils/api'
+import { getCharacters } from '@/utils/api'
 import Image from 'next/image'
 import Link from 'next/link';
 

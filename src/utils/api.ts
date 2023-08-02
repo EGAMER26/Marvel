@@ -1,4 +1,4 @@
-import { CharacterDataWrapper, ComicDataWrapper} from '@/types/marvels';
+import { CharacterDataWrapper, ComicDataWrapper, SeriesDataWrapper} from '@/types/marvels';
 import md5 from 'md5';
 const API_BASE_URL="https://gateway.marvel.com/v1/public";
 const API_PUBLIC_KEY="802207b8b666888bab323db04d2dd0f3";
@@ -40,4 +40,10 @@ export const getCharacterComic = async (characterId: string): Promise<ComicDataW
   const url = `${API_BASE_URL}/characters/${characterId}/comics?${query}`;
   const response = await fetch(url);
   return handleResponse<ComicDataWrapper>(response);
+}
+
+export const getCharacterSeries = async (characterId: string): Promise<SeriesDataWrapper> => {
+  const url = `${API_BASE_URL}/characters/${characterId}/series?${query}`;
+  const response = await fetch(url);
+  return handleResponse<SeriesDataWrapper>(response);
 }

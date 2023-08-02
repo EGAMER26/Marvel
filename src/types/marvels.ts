@@ -19,6 +19,9 @@ export interface Comics {
   
 }
 }
+export interface Series {
+  id: number
+}
 
 export interface CharacterDataWrapper {
   results: Character[]
@@ -27,4 +30,8 @@ export interface CharacterDataWrapper {
 
 export interface ComicDataWrapper {
   results: Comics[]
+}
+
+export interface SeriesDataWrapper {
+  results: Series[]
 }

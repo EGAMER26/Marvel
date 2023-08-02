@@ -1,7 +1,7 @@
 "use client"
 
 import Allnav from '@/components/Allnav';
-import { getCharacterComic, detailCharacter} from '@/utils/api';
+import { getCharacterComic, detailCharacter, getCharacterSeries} from '@/utils/api';
 import Image from 'next/image';
 import { FC, useEffect, useState} from "react";
 import { Comics} from '@/types/marvels'
@@ -29,15 +29,15 @@ const CharacterPage: FC<CharacterPageProps> = async ({ params }) => {
   const {comic, id} = params;
   // console.log(comic); 
   
+
+  const series = await getCharacterSeries(id);
+  console.log(series.results.length);
   const comics = await getCharacterComic(id);
   const {title} = comics.results[0];
   console.log(comics.results.length);
 
   const character = await detailCharacter(id);
   const {thumbnail, name, description, available} = character.results[0];
-  // const {available} = comics.results[0];
-  // const {comicThumbnail, comicName, comicDescription} = comics.results[0];
-    // console.log(`este é o numero de quadrinhos${available}`)
   return <div className='px-20 max-sm:px-auto bg-green-100 h-screen text-slate-600 z-10 relative'>
     <Allnav />
     <section className="pl-40 max-sm:pl-4 flex max-sm:flex-col">
@@ -56,8 +56,6 @@ const CharacterPage: FC<CharacterPageProps> = async ({ params }) => {
         <p>Quadrinhos</p>
         <div className="flex items-center">
           <Image width={30} height={100} className='mt-2' src="/assets/icones/book/Group@3x.png" alt="book" />
-          {/* <p className='ml-4'>{comics.results.map() => ({comics.available})}</p> */}
-          {/* <p className='ml-4'>{comics.results.map((comic) => <span key={comic.id}>{comic.title}</span>)}</p> */}
           <p className='ml-4'>{comics.results.length}</p>
         </div>
       </div>
@@ -65,7 +63,7 @@ const CharacterPage: FC<CharacterPageProps> = async ({ params }) => {
       <p>Filmes</p>
         <div className="flex items-center">
           <Image width={30} height={100} className='mt-2' src="/assets/icones/video/Shape@3x.png" alt="book" />
-          <p className='ml-4'>{}</p>
+          <p className='ml-4'>{series.results.length}</p>
         </div>
       </div>
 
