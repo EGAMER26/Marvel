@@ -1,7 +1,9 @@
+"use client"
+
 import Allnav from '@/components/Allnav';
 import { getCharacterComic, detailCharacter} from '@/utils/api';
 import Image from 'next/image';
-import { FC } from "react";
+import { FC, useEffect, useState} from "react";
 import { Comics} from '@/types/marvels'
 
 
@@ -24,13 +26,13 @@ interface CharacterPageProps {
 
 
 const CharacterPage: FC<CharacterPageProps> = async ({ params }) => {
-  const { comic, id} = params;
+  const {comic, id} = params;
   // console.log(comic); 
   
   const comics = await getCharacterComic(id);
-  console.log(`este são os parametros ${params.comic}`);
+  const {title} = comics.results[0];
+  console.log(comics.results.length);
 
-  
   const character = await detailCharacter(id);
   const {thumbnail, name, description, available} = character.results[0];
   // const {available} = comics.results[0];
@@ -56,7 +58,7 @@ const CharacterPage: FC<CharacterPageProps> = async ({ params }) => {
           <Image width={30} height={100} className='mt-2' src="/assets/icones/book/Group@3x.png" alt="book" />
           {/* <p className='ml-4'>{comics.results.map() => ({comics.available})}</p> */}
           {/* <p className='ml-4'>{comics.results.map((comic) => <span key={comic.id}>{comic.title}</span>)}</p> */}
-          <p className='ml-4'>{character.results.map((comic) => <span key={comic.id}>{comic.available}</span>)}</p>
+          <p className='ml-4'>{comics.results.length}</p>
         </div>
       </div>
       <div className="col-span-1">
