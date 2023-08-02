@@ -27,16 +27,16 @@ export default async function Home() {
       <div className="mt-20 w-2/3 flex justify-center">
         <Navbar />
       </div>
-      {/* <div className="grid place-items-center mt-20 w-full gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+      <div className="grid place-items-center mt-20 w-full gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
         {characters.results.map((character) => (
           <CharacterCard key={character.id} character={character}/>
         ))}
-      </div> */}
-      <div className="grid place-items-center mt-20 w-full gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+      </div>
+      {/* <div className="grid place-items-center mt-20 w-full gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
         {order.results.map((character) => (
           <CharacterCard key={character.id} character={character}/>
         ))}
-      </div>
+      </div> */}
     </main>
 
   )
